@@ -25,9 +25,9 @@ spec:
         archive:
           none: {}
     container:
-      image: alpine
+      image: eu-artifacts.common.repositories.sapcloud.cn/sap-aiw-prod/eu-artifacts/com.sap.ai/executions/domain-tests:0.7.25
       imagePullPolicy: Always
       command: ["/bin/sh", "-c"]
       args:
       - >
-        set -e && echo "---Validation for Alicloud---" > /app/model/alicloud-validation-output-external && ls -la /app/data/ >> /app/model/alicloud-validation-output-external
+        set -e && mkdir -p /app/model && mkdir -p /app/data && echo "---Validation for Alicloud---" > /app/model/alicloud-validation-output-external && ls -la /app/data/ >> /app/model/alicloud-validation-output-external
