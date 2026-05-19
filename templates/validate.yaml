@@ -17,10 +17,6 @@ spec:
     metadata:
       labels:
         ai.sap.com/resourcePlan: starter
-    inputs:
-      artifacts:
-      - name: validation-data
-        path: /app/data/
     outputs:
       artifacts:
       - name: alicloud-validation-output
