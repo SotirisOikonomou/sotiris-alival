@@ -2,26 +2,26 @@ apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
   annotations:
-    scenarios.ai.sap.com/name: "scenario-alicloud-validation-I520234"
-    executables.ai.sap.com/name: "executable-alicloud-validation-I520234"
-    executables.ai.sap.com/description: "Workflow Template for Alicloud validation"
+    scenarios.ai.sap.com/name: "scenario-alicloud-validation-external-I520234"
+    executables.ai.sap.com/name: "executable-alicloud-validation-external-I520234"
+    executables.ai.sap.com/description: "Workflow Template for Alicloud validation externally"
   labels:
-    scenarios.ai.sap.com/id: "scenario-alicloud-validation-I520234"
-    executables.ai.sap.com/id: "executable-alicloud-validation-I520234"
+    scenarios.ai.sap.com/id: "scenario-alicloud-validation-external-I520234"
+    executables.ai.sap.com/id: "executable-alicloud-validation-external-I520234"
     ai.sap.com/version: 0.0.1
-  name: "alicloudvalidationi520234.sot"
+  name: "alicloudvalidationi520234external.sot"
 spec:
-  entrypoint: alicloud-validation
+  entrypoint: alicloud-validation-external
   templates:
-  - name: alicloud-validation
+  - name: alicloud-validation-external
     metadata:
       labels:
         ai.sap.com/resourcePlan: starter
     outputs:
       artifacts:
-      - name: alicloud-validation-output
+      - name: alicloud-validation-output-external
         path: /app/model/
-        globalName: alicloud-validation-output
+        globalName: alicloud-validation-output-external
         archive:
           none: {}
     container:
@@ -30,4 +30,4 @@ spec:
       command: ["/bin/sh", "-c"]
       args:
       - >
-        set -e && echo "---Validation for Alicloud---" > /app/model/alicloud-validation-output && ls -la /app/data/ >> /app/model/alicloud-validation-output
+        set -e && echo "---Validation for Alicloud---" > /app/model/alicloud-validation-output-external && ls -la /app/data/ >> /app/model/alicloud-validation-output-external
